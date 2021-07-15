@@ -11,5 +11,5 @@ echo "someedid" | ./app/main.py
 
 ```bash
 . venv/bin/activate
-./app/main.py -i edid.bin
+./app/main.py -b -i edid.bin
 ```
