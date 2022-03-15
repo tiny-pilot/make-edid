@@ -30,7 +30,9 @@ def read_input(input, binary):
 
 
 def parse_hex_edid(input_raw):
-    return input_raw.strip().lower().replace(' ', '').replace('\n', '')
+    return input_raw.strip().lower().replace(':1',
+                                             '').replace(' ',
+                                                         '').replace('\n', '')
 
 
 def parse_binary_edid(input_raw):
@@ -38,7 +40,7 @@ def parse_binary_edid(input_raw):
 
 
 def print_cmd(edid):
-    print('readonly EDID="/home/ustreamer/edids/tc358743-edid.hex"')
+    print('EDID="$(mktemp -d)/tc358743-edid.hex"')
     print('echo -ne "" | sudo tee "${EDID}" && \\')
     max_chars = 40
     for i in range(int(len(edid) / max_chars) + 1):
